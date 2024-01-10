@@ -14,8 +14,8 @@ const generateFourDigitCode = () => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: "deybollar@gmail.com",
-      pass:"ngya vngb klgd rwqm"
+      user: process.env.APP_EMAIL,
+      pass:process.env.APP_EMAIL
     }
   });
 
@@ -24,7 +24,7 @@ const generateFourDigitCode = () => {
 
 const sendVerificationEmail = async(toEmail, verificationCode,callback) => {
     const mailOptions = {
-      from: "deybollar@gmail.com",
+      from: process.env.APP_EMAIL,
       to: toEmail,
       subject: 'Email Verification Code',
       text: `Your verification code is: ${verificationCode}`
