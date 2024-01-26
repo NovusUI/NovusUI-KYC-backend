@@ -23,7 +23,7 @@ const client = require("twilio")(accountSid, authToken);
 
 const app = express()
 
-const allowedOrigins = ["http://localhost:3000"];
+const allowedOrigins = ["http://localhost:3000","mappool-9a59c.firebaseapp.com","mappool-9a59c.web.app"];
 
 const corsOptions =  {
     origin:allowedOrigins,
