@@ -2,7 +2,7 @@
   "name": "novusui-kyc-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "src/app.js",
+  "main": "app.js",
   "scripts": {
     "dev": "nodemon app.js",
     "start": "node app.js",
