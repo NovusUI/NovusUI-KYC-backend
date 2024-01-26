@@ -1,6 +1,10 @@
 const express = require("express")
 const authMiddleware = require("./middleware/authMiddleWare")
 const cors = require("cors")
+const cron = require('node-cron');
+
+
+
 const admin = require("../firebase-config")
 const { generateFourDigitCode, sendVerificationEmail } = require("./utils")
 
@@ -89,6 +93,7 @@ app.post("/ap1/v1/email-verification/validate-code",async(req,res)=>{
             await userRef.update({verification})
             res.status(200).json({mgs: "accepted"})
         }else{
+            console.log("error")
             res.status(401).json({mgs: "unauthorized"})
         }
         
@@ -167,6 +172,22 @@ app.post("/ap1/v1/phone-verification/validate-otp",async(req,res)=>{
     
 })
 
+
+// Your function to be executed
+function myFunction() {
+    console.log('This function is executed every hour.');
+    // Add your logic here
+    sendVerificationEmail("noviceui@gmail.con","your server is active",(error)=>{
+        if(error){
+            res.status(500).json({msg:"an error occured"})
+        }else{
+            res.status(200).json({msg:"sent"})
+        }
+})
+}
+  
+  // Schedule the function to run every hour
+  cron.schedule('0 * * * *', myFunction);
 
 app.listen(port,()=>{
     console.log(`listening on port ${port}`);

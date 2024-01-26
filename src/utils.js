@@ -14,8 +14,8 @@ const generateFourDigitCode = () => {
   const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
-      user: process.env.APP_EMAIL,
-      pass:process.env.APP_EMAIL
+      user: "deybollar@gmail.com",
+      pass:"ngya vngb klgd rwqm"
     }
   });
 
