@@ -177,7 +177,7 @@ app.post("/ap1/v1/phone-verification/validate-otp",async(req,res)=>{
 function myFunction() {
     console.log('This function is executed every hour.');
     // Add your logic here
-    sendVerificationEmail("noviceui@gmail.con","your server is active",(error)=>{
+    sendVerificationEmail("noviceui@gmail.com","your server is active",(error)=>{
         if(error){
             res.status(500).json({msg:"an error occured"})
         }else{
